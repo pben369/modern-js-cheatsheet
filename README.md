@@ -243,7 +243,8 @@ function myFunction() {
     // this variable is not accessible outside this block and totally independent
     // from the first myVar created !
   }
-  console.log(myVar); // "Nick", see how the instructions in the if block DID NOT affect this value
+  console.log(myVar); // "Nick", see how the instructions in the if block DID NOT 
+                      //affect this value
 }
 console.log(myVar); // Throws a ReferenceError, myVar is not accessible outside the function.
 ```
@@ -865,9 +866,11 @@ That's exactly what the rest operator allows us to do!
 function createStudent(firstName, lastName, ...grades) {
   // firstName = "Nick"
   // lastName = "Anderson"
-  // [10, 12, 6] -- "..." takes all other parameters passed and creates a "grades" array variable that contains them
+  // [10, 12, 6] -- "..." takes all other parameters passed and creates a 
+  // "grades" array variable that contains them
 
-  const avgGrade = grades.reduce((acc, curr) => acc + curr, 0) / grades.length; // computes average grade from grades
+  const avgGrade = grades.reduce((acc, curr) => acc + curr, 0) / grades.length; 
+  // computes average grade from grades
 
   return {
     firstName: firstName,
@@ -1000,8 +1003,10 @@ Let's say we want to use promises to handle an Ajax request to fetch the resourc
 We firstly are going to create a promise. We will use the jQuery get method to do our Ajax request to X.
 
 ```js
-const xFetcherPromise = new Promise( // Create promise using "new" keyword and store it into a variable
-  function(resolve, reject) { // Promise constructor takes a function parameter which has resolve and reject parameters itself
+const xFetcherPromise = new Promise( // Create promise using "new" keyword and 
+                                     //store it into a variable
+  function(resolve, reject) { // Promise constructor takes a function parameter which has 
+                              //resolve and reject parameters itself
     $.get("X") // Launch the Ajax request
       .done(function(X) { // Once the request is done...
         resolve(X); // ... resolve the promise with the X value as parameter
@@ -1336,7 +1341,8 @@ class Square extends Polygon {
 
 const mySquare = new Square(10);
 console.log(mySquare.area) // 100
-console.log(mySquare.getHelloPhrase()) // 'Hi, I am a Square' -- Square inherits from Polygon and has access to its methods
+console.log(mySquare.getHelloPhrase()) // 'Hi, I am a Square' -- Square 
+                                       //inherits from Polygon and has access to its methods
 console.log(mySquare.getCustomHelloPhrase()) // 'Hi, I am a Square with a length of 10'
 ```
 
@@ -1377,14 +1383,18 @@ The purpose of async/await functions is to simplify the behavior of using promis
 #### Sample code
 
 ```js
-async function getGithubUser(username) { // async keyword allows usage of await in the function and means function returns a promise
-  const response = await fetch(`https://api.github.com/users/${username}`); // Execution is paused here until the Promise returned by fetch is resolved
+async function getGithubUser(username) { 
+// async keyword allows usage of await in the function and means function returns a promise
+  const response = await fetch(`https://api.github.com/users/${username}`); 
+  // Execution is paused here until the Promise returned by fetch is resolved
   return response.json();
 }
 
 getGithubUser('mbeaudru')
-  .then(user => console.log(user)) // logging user response - cannot use await syntax since this code isn't in async function
-  .catch(err => console.log(err)); // if an error is thrown in our async function, we will catch it here
+  .then(user => console.log(user)) 
+  // logging user response - cannot use await syntax since this code isn't in async function
+  .catch(err => console.log(err)); 
+  // if an error is thrown in our async function, we will catch it here
 ```
 
 #### Explanation with sample code
@@ -1399,7 +1409,8 @@ async function myFunc() {
   return "hello world";
 }
 
-myFunc().then(msg => console.log(msg)) // "hello world" -- myFunc's return value is turned into a promise because of async operator
+myFunc().then(msg => console.log(msg)) 
+// "hello world" -- myFunc's return value is turned into a promise because of async operator
 ```
 
 When the *return* statement of an async function is reached, the Promise is fulfilled with the value returned. If an error is thrown inside an async function, the Promise state will turn to *rejected*. If no value is returned from an async function, a Promise is still returned and resolves with no value when execution of the async function is complete.
@@ -1423,8 +1434,10 @@ getGithubUser('mbeaudru')
 Here's the *async / await* equivalent:
 
 ```js
-async function getGithubUser(username) { // promise + await keyword usage allowed
-  const response = await fetch(`https://api.github.com/users/${username}`); // Execution stops here until fetch promise is fulfilled
+async function getGithubUser(username) { 
+// promise + await keyword usage allowed
+  const response = await fetch(`https://api.github.com/users/${username}`); 
+  // Execution stops here until fetch promise is fulfilled
   return response.json();
 }
 
@@ -1768,7 +1781,8 @@ class Repo{
 
 // we need to instantiate the class to use non-static methods
 let r = new Repo()
-console.log(r.useName()) // Repo name is modern-js-cheatsheet and it contains some really important stuff
+console.log(r.useName()) 
+// Repo name is modern-js-cheatsheet and it contains some really important stuff
 ```
 
 2. ###### Using the constructor
