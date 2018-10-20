@@ -532,10 +532,15 @@ With destructuring, all in one line:
 ```js
 const { firstName: first, age, city = "Paris" } = person; // That's it !
 
-console.log(age) // 35 -- A new variable age is created and is equal to person.age
-console.log(first) // "Nick" -- A new variable first is created and is equal to person.firstName
-console.log(firstName) // ReferenceError -- person.firstName exists BUT the new variable created is named first
-console.log(city) // "Paris" -- A new variable city is created and since person.city is undefined, city is equal to the default value provided "Paris".
+console.log(age) 
+// 35 -- A new variable age is created and is equal to person.age
+console.log(first) 
+// "Nick" -- A new variable first is created and is equal to person.firstName
+console.log(firstName) 
+// ReferenceError -- person.firstName exists BUT the new variable created is named first
+console.log(city) 
+// "Paris" -- A new variable city is created and since person.
+//city is undefined, city is equal to the default value provided "Paris".
 ```
 
 **Note :** In ```const { age } = person;```, the brackets after *const* keyword are not used to declare an object nor a block but is the *destructuring* syntax.
@@ -559,7 +564,8 @@ joinFirstLastName(person); // "Nick-Anderson"
 In destructuring the object parameter *person*, we get a more concise function:
 
 ```js
-function joinFirstLastName({ firstName, lastName }) { // we create firstName and lastName variables by destructuring person parameter
+function joinFirstLastName({ firstName, lastName }) { 
+// we create firstName and lastName variables by destructuring person parameter
   return firstName + '-' + lastName;
 }
 
@@ -1211,13 +1217,16 @@ function myFunc() {
 
 // After each statement, you find the value of *this* in myFunc
 
-myFunc.call("myString", "hello") // "myString" -- first .call parameter value is injected into *this*
+myFunc.call("myString", "hello") 
+// "myString" -- first .call parameter value is injected into *this*
 
 // In non-strict-mode
-myFunc("hello") // window -- myFunc() is syntax sugar for myFunc.call(window, "hello")
+myFunc("hello") 
+// window -- myFunc() is syntax sugar for myFunc.call(window, "hello")
 
 // In strict-mode
-myFunc("hello") // undefined -- myFunc() is syntax sugar for myFunc.call(undefined, "hello")
+myFunc("hello") 
+// undefined -- myFunc() is syntax sugar for myFunc.call(undefined, "hello")
 ```
 
 ```js
@@ -1225,12 +1234,17 @@ var person = {
   myFunc: function() { ... }
 }
 
-person.myFunc.call(person, "test") // person Object -- first call parameter is injected into *this*
-person.myFunc("test") // person Object -- person.myFunc() is syntax sugar for person.myFunc.call(person, "test")
+person.myFunc.call(person, "test") 
+// person Object -- first call parameter is injected into *this*
+person.myFunc("test") 
+// person Object -- person.myFunc() is syntax sugar for person.myFunc.call(person, "test")
 
-var myBoundFunc = person.myFunc.bind("hello") // Creates a new function in which we inject "hello" in *this* value
-person.myFunc("test") // person Object -- The bind method has no effect on the original method
-myBoundFunc("test") // "hello" -- myBoundFunc is person.myFunc with "hello" bound to *this*
+var myBoundFunc = person.myFunc.bind("hello") 
+// Creates a new function in which we inject "hello" in *this* value
+person.myFunc("test") 
+// person Object -- The bind method has no effect on the original method
+myBoundFunc("test") 
+// "hello" -- myBoundFunc is person.myFunc with "hello" bound to *this*
 ```
 
 #### External resources
@@ -1803,7 +1817,8 @@ class Repo{
 
 // we need to instantiate the class to use non-static methods
 let r = new Repo()
-console.log(r.useName()) // Repo name is modern-js-cheatsheet and it contains some really important stuff
+console.log(r.useName()) 
+// Repo name is modern-js-cheatsheet and it contains some really important stuff
 ```
 
 #### External resources
